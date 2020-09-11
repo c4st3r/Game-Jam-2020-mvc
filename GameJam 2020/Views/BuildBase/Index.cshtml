@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Game Jam 2020";
+    Layout = "~/Views/Shared/_LayoutReact.cshtml";
+}
+
+<div id="header">
+    <h2 id="title">Build Base</h2>
+</div>
+<div id="root"></div>
+<div id="errors" style="
+    background: #c00;
+    color: #fff;
+    display: none;
+    margin: -20px -20px 20px;
+    padding: 20px;
+    white-space: pre-wrap;
+    "></div>
+
+<script>
+        window.onerror = function (message, source, line, col, error) {
+            var text = error ? error.stack || error : message + ' (at ' + source + ':' + line + ':' + col + ')';
+            errors.textContent += text + '\n';
+            errors.style.display = '';
+        };
+        console.error = (function (old) {
+            return function error() {
+                errors.textContent += Array.prototype.slice.call(arguments).join(' ') + '\n';
+                errors.style.display = '';
+                old.apply(this, arguments);
+            }
+        })(console.error);
+</script>

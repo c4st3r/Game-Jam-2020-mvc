@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <base href="~/" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/ReactSite.css">
+    <script src="https://kit.fontawesome.com/540839783f.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="~/Scripts/custom/Data.js"></script>
+    <script src="~/Scripts/custom/Data2.js"></script>
+    <script src="~/Scripts/custom/TaskWork.js"></script>
+    <script src="~/Scripts/custom/WorkerFunctions.js"></script>
+    <script src="~/Scripts/custom/BaseBuildReact.js" type="text/babel">
+    </script>
+</head>
+<body>
+    <div id="content" class="body-content">
+        @RenderBody()
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
