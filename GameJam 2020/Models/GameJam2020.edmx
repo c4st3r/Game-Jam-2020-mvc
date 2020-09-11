@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="GameJam2020.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="GameJam2020TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GameJam2020" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="GameJam2020Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Teams" EntityType="GameJam2020.Teams" />
+          <EntitySet Name="Sessions" EntityType="GameJam2020.Sessions" />
+          <EntitySet Name="Players" EntityType="GameJam2020.Players" />
+          <EntitySet Name="Items" EntityType="GameJam2020.Items" />
+          <EntitySet Name="Workers" EntityType="GameJam2020.Workers" />
+          <EntitySet Name="Tasks" EntityType="GameJam2020.Tasks" />
+          <EntitySet Name="Loots" EntityType="GameJam2020.Loot" />
+          <EntitySet Name="Requirements" EntityType="GameJam2020.Requirements" />
+          <EntitySet Name="TeamPlayers" EntityType="GameJam2020.TeamPlayer" />
+          <AssociationSet Name="TeamPlayerTeams" Association="GameJam2020.TeamPlayerTeams">
+            <End Role="TeamPlayer" EntitySet="TeamPlayers" />
+            <End Role="Teams" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="TeamPlayerPlayers" Association="GameJam2020.TeamPlayerPlayers">
+            <End Role="TeamPlayer" EntitySet="TeamPlayers" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="SessionsTeams" Association="GameJam2020.SessionsTeams">
+            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="Teams" EntitySet="Teams" />
+          </AssociationSet>
+          <EntitySet Name="PlayerInventories" EntityType="GameJam2020.PlayerInventory" />
+          <AssociationSet Name="TeamPlayerItemsTeamPlayer" Association="GameJam2020.TeamPlayerItemsTeamPlayer">
+            <End Role="TeamPlayerItems" EntitySet="PlayerInventories" />
+            <End Role="TeamPlayer" EntitySet="TeamPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="TeamPlayerItemsItems" Association="GameJam2020.TeamPlayerItemsItems">
+            <End Role="TeamPlayerItems" EntitySet="PlayerInventories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <EntitySet Name="PlayerTasks" EntityType="GameJam2020.PlayerTask" />
+          <AssociationSet Name="PlayerTaskTeamPlayer" Association="GameJam2020.PlayerTaskTeamPlayer">
+            <End Role="PlayerTask" EntitySet="PlayerTasks" />
+            <End Role="TeamPlayer" EntitySet="TeamPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="TasksPlayerTask" Association="GameJam2020.TasksPlayerTask">
+            <End Role="PlayerTask" EntitySet="PlayerTasks" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <EntitySet Name="PlayerWorkers" EntityType="GameJam2020.PlayerWorkers" />
+          <AssociationSet Name="PlayerWorkersTeamPlayer" Association="GameJam2020.PlayerWorkersTeamPlayer">
+            <End Role="PlayerWorkers" EntitySet="PlayerWorkers" />
+            <End Role="TeamPlayer" EntitySet="TeamPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="PlayerWorkersWorkers" Association="GameJam2020.PlayerWorkersWorkers">
+            <End Role="PlayerWorkers" EntitySet="PlayerWorkers" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <EntitySet Name="TeamInventories" EntityType="GameJam2020.TeamInventory" />
+          <AssociationSet Name="TeamInventoryTeams" Association="GameJam2020.TeamInventoryTeams">
+            <End Role="TeamInventory" EntitySet="TeamInventories" />
+            <End Role="Teams" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="ItemsTeamInventory" Association="GameJam2020.ItemsTeamInventory">
+            <End Role="TeamInventory" EntitySet="TeamInventories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <EntitySet Name="TeamTasks" EntityType="GameJam2020.TeamTask" />
+          <AssociationSet Name="TeamTaskTeams" Association="GameJam2020.TeamTaskTeams">
+            <End Role="TeamTask" EntitySet="TeamTasks" />
+            <End Role="Teams" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="TeamTaskTasks" Association="GameJam2020.TeamTaskTasks">
+            <End Role="TeamTask" EntitySet="TeamTasks" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <EntitySet Name="TeamWorkers" EntityType="GameJam2020.TeamWorker" />
+          <AssociationSet Name="TeamWorkerTeams" Association="GameJam2020.TeamWorkerTeams">
+            <End Role="TeamWorker" EntitySet="TeamWorkers" />
+            <End Role="Teams" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="TeamWorkerWorkers" Association="GameJam2020.TeamWorkerWorkers">
+            <End Role="TeamWorker" EntitySet="TeamWorkers" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="TasksRequirements" Association="GameJam2020.TasksRequirements">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="Requirements" EntitySet="Requirements" />
+          </AssociationSet>
+          <AssociationSet Name="ItemsRequirements" Association="GameJam2020.ItemsRequirements">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Requirements" EntitySet="Requirements" />
+          </AssociationSet>
+          <AssociationSet Name="LootTasks" Association="GameJam2020.LootTasks">
+            <End Role="Loot" EntitySet="Loots" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="LootItems" Association="GameJam2020.LootItems">
+            <End Role="Loot" EntitySet="Loots" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Teams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="TeamPlayers" Relationship="GameJam2020.TeamPlayerTeams" FromRole="Teams" ToRole="TeamPlayer" />
+          <NavigationProperty Name="Session" Relationship="GameJam2020.SessionsTeams" FromRole="Teams" ToRole="Sessions" />
+          <Property Name="SessionsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TeamInventories" Relationship="GameJam2020.TeamInventoryTeams" FromRole="Teams" ToRole="TeamInventory" />
+          <NavigationProperty Name="TeamTasks" Relationship="GameJam2020.TeamTaskTeams" FromRole="Teams" ToRole="TeamTask" />
+          <NavigationProperty Name="TeamWorkers" Relationship="GameJam2020.TeamWorkerTeams" FromRole="Teams" ToRole="TeamWorker" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Teams" Relationship="GameJam2020.SessionsTeams" FromRole="Sessions" ToRole="Teams" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="TeamPlayers" Relationship="GameJam2020.TeamPlayerPlayers" FromRole="Players" ToRole="TeamPlayer" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TeamPlayerItems" Relationship="GameJam2020.TeamPlayerItemsItems" FromRole="Items" ToRole="TeamPlayerItems" />
+          <Property Name="Category" Type="String" Nullable="false" />
+          <Property Name="Icon" Type="String" Nullable="false" />
+          <NavigationProperty Name="TeamInventories" Relationship="GameJam2020.ItemsTeamInventory" FromRole="Items" ToRole="TeamInventory" />
+          <NavigationProperty Name="Requirements" Relationship="GameJam2020.ItemsRequirements" FromRole="Items" ToRole="Requirements" />
+          <NavigationProperty Name="Loots" Relationship="GameJam2020.LootItems" FromRole="Items" ToRole="Loot" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PlayerWorkers" Relationship="GameJam2020.PlayerWorkersWorkers" FromRole="Workers" ToRole="PlayerWorkers" />
+          <NavigationProperty Name="TeamWorker" Relationship="GameJam2020.TeamWorkerWorkers" FromRole="Workers" ToRole="TeamWorker" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Effort" Type="String" Nullable="false" />
+          <Property Name="curHunger" Type="String" Nullable="false" />
+          <Property Name="curThrist" Type="String" Nullable="false" />
+          <Property Name="curHealth" Type="String" Nullable="false" />
+          <Property Name="MaxHunger" Type="String" Nullable="false" />
+          <Property Name="MaxThrist" Type="String" Nullable="false" />
+          <Property Name="MaxHealth" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PlayerTasks" Relationship="GameJam2020.TasksPlayerTask" FromRole="Tasks" ToRole="PlayerTask" />
+          <NavigationProperty Name="TeamTasks" Relationship="GameJam2020.TeamTaskTasks" FromRole="Tasks" ToRole="TeamTask" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Tab" Type="String" Nullable="false" />
+          <Property Name="Log" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Effort" Type="String" Nullable="false" />
+          <Property Name="MaxDurability" Type="String" Nullable="false" />
+          <Property Name="Icon" Type="String" Nullable="false" />
+          <NavigationProperty Name="Requirements" Relationship="GameJam2020.TasksRequirements" FromRole="Tasks" ToRole="Requirements" />
+          <NavigationProperty Name="Loots" Relationship="GameJam2020.LootTasks" FromRole="Tasks" ToRole="Loot" />
+        </EntityType>
+        <EntityType Name="Loot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Odds" Type="String" Nullable="false" />
+          <Property Name="QuantityRewarded" Type="String" Nullable="false" />
+          <NavigationProperty Name="Task" Relationship="GameJam2020.LootTasks" FromRole="Loot" ToRole="Tasks" />
+          <Property Name="TasksId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="GameJam2020.LootItems" FromRole="Loot" ToRole="Items" />
+          <Property Name="ItemsId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Requirements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Task" Relationship="GameJam2020.TasksRequirements" FromRole="Requirements" ToRole="Tasks" />
+          <Property Name="TasksId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="GameJam2020.ItemsRequirements" FromRole="Requirements" ToRole="Items" />
+          <Property Name="ItemsId" Type="Int32" Nullable="false" />
+          <Property Name="QuantityNeeded" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamPlayer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Team" Relationship="GameJam2020.TeamPlayerTeams" FromRole="TeamPlayer" ToRole="Teams" />
+          <Property Name="TeamsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Player" Relationship="GameJam2020.TeamPlayerPlayers" FromRole="TeamPlayer" ToRole="Players" />
+          <Property Name="PlayersId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TeamPlayerItems" Relationship="GameJam2020.TeamPlayerItemsTeamPlayer" FromRole="TeamPlayer" ToRole="TeamPlayerItems" />
+          <NavigationProperty Name="PlayerTasks" Relationship="GameJam2020.PlayerTaskTeamPlayer" FromRole="TeamPlayer" ToRole="PlayerTask" />
+          <NavigationProperty Name="PlayerWorkers" Relationship="GameJam2020.PlayerWorkersTeamPlayer" FromRole="TeamPlayer" ToRole="PlayerWorkers" />
+        </EntityType>
+        <Association Name="TeamPlayerTeams">
+          <End Type="GameJam2020.TeamPlayer" Role="TeamPlayer" Multiplicity="*" />
+          <End Type="GameJam2020.Teams" Role="Teams" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPlayer">
+              <PropertyRef Name="TeamsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamPlayerPlayers">
+          <End Type="GameJam2020.TeamPlayer" Role="TeamPlayer" Multiplicity="*" />
+          <End Type="GameJam2020.Players" Role="Players" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Players">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPlayer">
+              <PropertyRef Name="PlayersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SessionsTeams">
+          <End Type="GameJam2020.Sessions" Role="Sessions" Multiplicity="1" />
+          <End Type="GameJam2020.Teams" Role="Teams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sessions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Teams">
+              <PropertyRef Name="SessionsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PlayerInventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TeamPlayer" Relationship="GameJam2020.TeamPlayerItemsTeamPlayer" FromRole="TeamPlayerItems" ToRole="TeamPlayer" />
+          <Property Name="TeamPlayerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="GameJam2020.TeamPlayerItemsItems" FromRole="TeamPlayerItems" ToRole="Items" />
+          <Property Name="ItemsId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="TeamPlayerItemsTeamPlayer">
+          <End Type="GameJam2020.PlayerInventory" Role="TeamPlayerItems" Multiplicity="*" />
+          <End Type="GameJam2020.TeamPlayer" Role="TeamPlayer" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="TeamPlayer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPlayerItems">
+              <PropertyRef Name="TeamPlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamPlayerItemsItems">
+          <End Type="GameJam2020.PlayerInventory" Role="TeamPlayerItems" Multiplicity="*" />
+          <End Type="GameJam2020.Items" Role="Items" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPlayerItems">
+              <PropertyRef Name="ItemsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PlayerTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TeamPlayer" Relationship="GameJam2020.PlayerTaskTeamPlayer" FromRole="PlayerTask" ToRole="TeamPlayer" />
+          <Property Name="TeamPlayerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Task" Relationship="GameJam2020.TasksPlayerTask" FromRole="PlayerTask" ToRole="Tasks" />
+          <Property Name="TasksId" Type="Int32" Nullable="false" />
+          <Property Name="curDurability" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="PlayerTaskTeamPlayer">
+          <End Type="GameJam2020.PlayerTask" Role="PlayerTask" Multiplicity="*" />
+          <End Type="GameJam2020.TeamPlayer" Role="TeamPlayer" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="TeamPlayer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerTask">
+              <PropertyRef Name="TeamPlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TasksPlayerTask">
+          <End Type="GameJam2020.PlayerTask" Role="PlayerTask" Multiplicity="*" />
+          <End Type="GameJam2020.Tasks" Role="Tasks" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerTask">
+              <PropertyRef Name="TasksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PlayerWorkers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TeamPlayer" Relationship="GameJam2020.PlayerWorkersTeamPlayer" FromRole="PlayerWorkers" ToRole="TeamPlayer" />
+          <Property Name="TeamPlayerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Worker" Relationship="GameJam2020.PlayerWorkersWorkers" FromRole="PlayerWorkers" ToRole="Workers" />
+          <Property Name="WorkersId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PlayerWorkersTeamPlayer">
+          <End Type="GameJam2020.PlayerWorkers" Role="PlayerWorkers" Multiplicity="*" />
+          <End Type="GameJam2020.TeamPlayer" Role="TeamPlayer" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="TeamPlayer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerWorkers">
+              <PropertyRef Name="TeamPlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PlayerWorkersWorkers">
+          <End Type="GameJam2020.PlayerWorkers" Role="PlayerWorkers" Multiplicity="0..1" />
+          <End Type="GameJam2020.Workers" Role="Workers" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerWorkers">
+              <PropertyRef Name="WorkersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TeamInventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Team" Relationship="GameJam2020.TeamInventoryTeams" FromRole="TeamInventory" ToRole="Teams" />
+          <Property Name="TeamsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="GameJam2020.ItemsTeamInventory" FromRole="TeamInventory" ToRole="Items" />
+          <Property Name="ItemsId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="TeamInventoryTeams">
+          <End Type="GameJam2020.TeamInventory" Role="TeamInventory" Multiplicity="*" />
+          <End Type="GameJam2020.Teams" Role="Teams" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamInventory">
+              <PropertyRef Name="TeamsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemsTeamInventory">
+          <End Type="GameJam2020.TeamInventory" Role="TeamInventory" Multiplicity="*" />
+          <End Type="GameJam2020.Items" Role="Items" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamInventory">
+              <PropertyRef Name="ItemsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TeamTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Team" Relationship="GameJam2020.TeamTaskTeams" FromRole="TeamTask" ToRole="Teams" />
+          <Property Name="TeamsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Task" Relationship="GameJam2020.TeamTaskTasks" FromRole="TeamTask" ToRole="Tasks" />
+          <Property Name="TasksId" Type="Int32" Nullable="false" />
+          <Property Name="curDurability" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="TeamTaskTeams">
+          <End Type="GameJam2020.TeamTask" Role="TeamTask" Multiplicity="*" />
+          <End Type="GameJam2020.Teams" Role="Teams" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamTask">
+              <PropertyRef Name="TeamsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamTaskTasks">
+          <End Type="GameJam2020.TeamTask" Role="TeamTask" Multiplicity="*" />
+          <End Type="GameJam2020.Tasks" Role="Tasks" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamTask">
+              <PropertyRef Name="TasksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TeamWorker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Team" Relationship="GameJam2020.TeamWorkerTeams" FromRole="TeamWorker" ToRole="Teams" />
+          <Property Name="TeamsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Worker" Relationship="GameJam2020.TeamWorkerWorkers" FromRole="TeamWorker" ToRole="Workers" />
+        </EntityType>
+        <Association Name="TeamWorkerTeams">
+          <End Type="GameJam2020.TeamWorker" Role="TeamWorker" Multiplicity="*" />
+          <End Type="GameJam2020.Teams" Role="Teams" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Teams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamWorker">
+              <PropertyRef Name="TeamsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamWorkerWorkers">
+          <End Type="GameJam2020.TeamWorker" Role="TeamWorker" Multiplicity="0..1" />
+          <End Type="GameJam2020.Workers" Role="Workers" Multiplicity="1" />
+        </Association>
+        <Association Name="TasksRequirements">
+          <End Type="GameJam2020.Tasks" Role="Tasks" Multiplicity="1" />
+          <End Type="GameJam2020.Requirements" Role="Requirements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirements">
+              <PropertyRef Name="TasksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemsRequirements">
+          <End Type="GameJam2020.Items" Role="Items" Multiplicity="1" />
+          <End Type="GameJam2020.Requirements" Role="Requirements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirements">
+              <PropertyRef Name="ItemsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LootTasks">
+          <End Type="GameJam2020.Loot" Role="Loot" Multiplicity="*" />
+          <End Type="GameJam2020.Tasks" Role="Tasks" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Loot">
+              <PropertyRef Name="TasksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LootItems">
+          <End Type="GameJam2020.Loot" Role="Loot" Multiplicity="*" />
+          <End Type="GameJam2020.Items" Role="Items" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Loot">
+              <PropertyRef Name="ItemsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="GameJam2020" />
+        <Alias Key="Target" Value="GameJam2020.Store" />
+        <EntityContainerMapping CdmEntityContainer="GameJam2020Container" StorageEntityContainer="GameJam2020TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

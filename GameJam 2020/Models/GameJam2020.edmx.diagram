@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8cf266fe27d24ab6b1905c5e32d8433b" Name="Diagram1" >
+        <EntityTypeShape EntityType="GameJam2020.Teams" Width="1.5" PointX="5.875" PointY="0.5" />
+        <EntityTypeShape EntityType="GameJam2020.Sessions" Width="1.5" PointX="8.5" PointY="0.5" />
+        <EntityTypeShape EntityType="GameJam2020.Players" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="GameJam2020.Items" Width="1.5" PointX="0.5" PointY="7.75" />
+        <EntityTypeShape EntityType="GameJam2020.Workers" Width="1.5" PointX="4" PointY="7.75" />
+        <EntityTypeShape EntityType="GameJam2020.Tasks" Width="1.5" PointX="2.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GameJam2020.Loot" Width="1.5" PointX="2.25" PointY="11.75" />
+        <EntityTypeShape EntityType="GameJam2020.Requirements" Width="1.5" PointX="0.5" PointY="11.75" />
+        <EntityTypeShape EntityType="GameJam2020.TeamPlayer" Width="1.5" PointX="3.125" PointY="0.5" />
+        <AssociationConnector Association="GameJam2020.TeamPlayerTeams" />
+        <AssociationConnector Association="GameJam2020.TeamPlayerPlayers" />
+        <AssociationConnector Association="GameJam2020.SessionsTeams" />
+        <EntityTypeShape EntityType="GameJam2020.PlayerInventory" Width="1.5" PointX="0.5" PointY="4" />
+        <AssociationConnector Association="GameJam2020.TeamPlayerItemsTeamPlayer" />
+        <AssociationConnector Association="GameJam2020.TeamPlayerItemsItems" />
+        <EntityTypeShape EntityType="GameJam2020.PlayerTask" Width="1.5" PointX="2.375" PointY="4" />
+        <AssociationConnector Association="GameJam2020.PlayerTaskTeamPlayer" />
+        <AssociationConnector Association="GameJam2020.TasksPlayerTask" />
+        <EntityTypeShape EntityType="GameJam2020.PlayerWorkers" Width="1.5" PointX="4.125" PointY="4" />
+        <AssociationConnector Association="GameJam2020.PlayerWorkersTeamPlayer" />
+        <AssociationConnector Association="GameJam2020.PlayerWorkersWorkers" />
+        <EntityTypeShape EntityType="GameJam2020.TeamInventory" Width="1.5" PointX="6" PointY="4" />
+        <AssociationConnector Association="GameJam2020.TeamInventoryTeams" />
+        <AssociationConnector Association="GameJam2020.ItemsTeamInventory" />
+        <EntityTypeShape EntityType="GameJam2020.TeamTask" Width="1.5" PointX="7.75" PointY="4" />
+        <AssociationConnector Association="GameJam2020.TeamTaskTeams" />
+        <AssociationConnector Association="GameJam2020.TeamTaskTasks" />
+        <EntityTypeShape EntityType="GameJam2020.TeamWorker" Width="1.5" PointX="9.375" PointY="4" />
+        <AssociationConnector Association="GameJam2020.TeamWorkerTeams" />
+        <AssociationConnector Association="GameJam2020.TeamWorkerWorkers" />
+        <AssociationConnector Association="GameJam2020.TasksRequirements" />
+        <AssociationConnector Association="GameJam2020.ItemsRequirements" />
+        <AssociationConnector Association="GameJam2020.LootTasks" />
+        <AssociationConnector Association="GameJam2020.LootItems" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
